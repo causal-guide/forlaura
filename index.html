@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	    <script>
+        function answerQuestion(isYes) {
+            if (isYes) {
+                alert('🌹');
+            }
+        }
+
+        function getRandomPosition() {
+            return Math.floor(Math.random() * 300); // Adjust as needed
+        }
+
+        function moveNoButton() {
+            document.getElementById('noBtn').style.top = getRandomPosition() + 'px';
+            document.getElementById('noBtn').style.left = getRandomPosition() + 'px';
+        }
+    </script>
+    <style>
+        /* Your existing styles remain unchanged */
+        @media only screen and (min-width: 600px) {
+        	body{
+        		zoom: 250%;
+        	}
+        	
+        }
+	        
+	@media only screen and (min-width: 768px) {
+		body{
+			zoom: 275%;
+		}
+	}
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 20px;
+            zoom:200%
+        }
+
+        .question-container {
+            border: 2px solid #3498db;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #ecf0f1;
+            border-radius: 8px;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        button {
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #yesBtn {
+            background-color: #2ecc71;
+            color: #fff;
+        }
+
+        #noBtn {
+            background-color: #e74c3c;
+            color: #fff;
+            position: absolute;
+            top: ${getRandomPosition()}px;
+            left: ${getRandomPosition()}px;
+        }
+
+        #noBtn:hover {
+            position: absolute;
+            top: ${getRandomPosition()}px;
+            left: ${getRandomPosition()}px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="question-container">
+
+            <p>Hai <font color="blue">Laura</font> I <font color="red">Love</font> You. Kamu mau ga jadi pacar ku?</p>
+            <button id="yesBtn" onclick="answerQuestion(true)" name="response" value="yes">🌹Ya</button>
+            <button id="noBtn" name="response" value="no" onclick="moveNoButton()">Tidak</button>
+
+    </div>
+
+</body>
+
+</html>
